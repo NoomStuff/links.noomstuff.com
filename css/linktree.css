@@ -1,0 +1,154 @@
+#linktree {
+    display: block;
+    background: var(--background-gradient);
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#linktree::before {
+    content: '';
+    position: absolute;
+    top: -32px;
+    left: -32px;
+    width: calc(100vw + 64px);
+    height: calc(100vh + 64px);
+    background-image: url('../img/dot-background.svg');
+    background-size: 32px;
+    background-repeat: repeat;
+    z-index: 0;
+    opacity: 0.05;
+    pointer-events: none;
+
+    animation: backgroundScroll 10s linear infinite;
+
+    will-change: transform;
+    transform: translate(0, 0);
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    z-index: 10;
+    background-image: url('../img/bubble.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    text-decoration: none;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transform-origin: top left;
+    scale: 0.9;
+
+    &:hover {
+        text-decoration: none;
+        z-index: 11;
+        scale: 1;
+    }
+}
+
+#linktree .link {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+#linktree .link:hover {
+    scale: 1 !important;
+}
+
+#linktree:has(.link:hover) .link:not(:hover) {
+    opacity: 0.65;
+}
+
+.link i {
+    font-size: 1.5em;
+    scale: 1;
+    transition: scale 0.3s ease;
+}
+
+.link:hover i {
+    scale: 1.2;
+}
+
+.link img {
+    border-radius: 50%;
+    transition: scale 0.3s ease;
+}
+
+.link:hover img {
+    scale: 1.025;
+}
+
+.link span {
+    position: absolute;
+    font-size: 0.45em;
+    font-weight: 300;
+    background-color: black;
+    padding: 0 var(--spacing-1);
+    border-radius: var(--spacing-1);
+    transform: scale(0.5) translateY(300%);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.link:hover span {
+    z-index: 1;
+    transform: scale(1) translateY(200%);
+    opacity: 1;
+}
+
+.home-link img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.bubble-animate {
+    animation: bubbleFadeIn 0.75s cubic-bezier(0.15, 0.5, 0.2, 1.275) forwards;
+}
+
+@keyframes bubbleFadeIn {
+    from {
+        scale: 0;
+    }
+
+    to {
+        scale: 0.9;
+    }
+}
+
+#mobile-text {
+    display: none;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.75;
+    animation: opacityPulse 4s ease-in-out infinite;
+}
+
+@media screen and (max-width: 768px) {
+    #linktree.mobile-hover.triggered .link span {
+        z-index: 1;
+        transform: scale(1) translateY(175%);
+        opacity: 1;
+    }
+
+    #mobile-text {
+        position: absolute;
+        display: block;
+        bottom: 2vh;
+        width: 100%;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--text-color);
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+        z-index: 10;
+    }
+}
