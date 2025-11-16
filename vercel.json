@@ -31,7 +31,7 @@
             "permanent": true
         },
         {
-            "source": "/discordprofile",
+            "source": "/discord-profile",
             "destination": "https://discord.com/users/786268151687544842",
             "permanent": true
         },
@@ -217,7 +217,7 @@
         },
         {
             "source": "/dl",
-            "destination": "https://noomstuff.itch.io/desktopleafette",
+            "destination": "https://noomstuff.itch.io/desktop-leafette",
             "permanent": true
         },
         {

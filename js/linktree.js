@@ -35,7 +35,7 @@ const importantLinks = [
     },
     {
         name: "Discord",
-        url: "/discordprofile",
+        url: "/discord-profile",
         icon: "fa-brands fa-discord"
     },
 
@@ -99,7 +99,7 @@ const links = [
     },
     {
         name: "Steam",
-        url: "/steamprofile",
+        url: "/steam-profile",
         icon: "fa-brands fa-steam"
     },
     {
@@ -145,7 +145,7 @@ function createLinks() {
 
     const linkElement = document.createElement('a');
     linkElement.className = 'link home-link';
-    linkElement.href = '/';
+    linkElement.href = 'https://www.noomstuff.com';
     linkElement.target = '_blank';
     linkElement.rel = 'noopener noreferrer';
     linkElement.innerHTML = `<img src="img/profile.png" alt="NoomStuff Logo" style="width: 100%; height: 100%;"> <span>Website</span>`;
