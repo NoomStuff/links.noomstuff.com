@@ -83,7 +83,7 @@ function createLinks() {
     linkElement.href = 'https://noomstuff.com';
     linkElement.target = '_blank';
     linkElement.rel = 'noopener noreferrer';
-    linkElement.innerHTML = `<img src="img/icon.png" alt="NoomStuff Logo" style="width: 100%; height: 100%;">`;
+    linkElement.innerHTML = `<img src="media/icon.png" alt="NoomStuff Logo" style="width: 100%; height: 100%;">`;
     linkElement.style.position = 'absolute';
     linkElement.style.width = radius + 'px';
     linkElement.style.left = `${centerX}px`;

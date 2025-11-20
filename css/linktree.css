@@ -15,7 +15,7 @@
     left: -32px;
     width: calc(100vw + 64px);
     height: calc(100vh + 64px);
-    background-image: url('../img/dot-background.svg');
+    background-image: url('../media/dot-background.svg');
     background-size: 32px;
     background-repeat: repeat;
     z-index: 0;
@@ -35,7 +35,7 @@
     justify-content: center;
     aspect-ratio: 1 / 1;
     z-index: 10;
-    background-image: url('../img/bubble.png');
+    background-image: url('../media/bubble.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
