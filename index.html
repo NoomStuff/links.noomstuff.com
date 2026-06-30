@@ -1,37 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#100b17">
 
-    <link rel="stylesheet" href="https://noomstuff.com/css/base.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/linktree.css">
 
-    <script src="js/linktree.js" defer></script>
+    <script src="js/bubbles.js" defer></script>
+    <script src="js/directory.js" defer></script>
     <script src="js/mouse-trailer.js" defer></script>
-    <script src="js/mobile-hover.js" defer></script>
+    <script src="js/scroll-down.js" defer></script>
+    
     <script src="https://kit.fontawesome.com/a7bbea504e.js" crossorigin="anonymous"></script>
 
-    <title>Linktree | NoomStuff.com</title>
-    <meta name="description" content="NoomStuff's Linktree - links to all my accounts & profiles!">
-    <meta name="keywords" content="NoomStuff, games, gamedev, art, artist, development, gaming, indie games, linktree, links, profiles, accounts">
-    <link rel="icon" href="https://noomstuff.com/media/favicon.ico" type="image/x-icon">
+    <title>NoomStuff's Linktree</title>
+    <meta name="description" content="All the places you can find me online!">
+    <link rel="icon" href="media/favicon.ico" type="image/x-icon">
 
     <meta property="og:title" content="NoomStuff's Linktree">
-    <meta property="og:description" content="Links to all my accounts & profiles!">
+    <meta property="og:description" content="All the places you can find me online!">
     <meta property="og:image" content="https://links.noomstuff.com/media/social-preview.png">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="NoomStuff's Linktree">
-    <meta name="twitter:description" content="Links to all my accounts & profiles!">
+    <meta name="twitter:description" content="All the places you can find me online!">
     <meta name="twitter:image" content="https://links.noomstuff.com/media/social-preview.png">
-    <meta name="twitter:creator" content="@NoomStuff">
 </head>
 
 <body>
-    <main id="linktree" class="mobile-hover">
+    <main id="linktree">
+        <section class="hero" aria-label="Featured links">
+            <div id="bubble-caption" class="bubble-caption" aria-live="polite" aria-atomic="true">
+                <strong></strong>
+                <span></span>
+            </div>
+
+            <div id="bubble-stage" class="bubble-stage" aria-label="Featured links">
+                <a class="profile-bubble">
+                    <span class="bubble-entrance">
+                        <span class="bubble-surface">
+                            <img alt="">
+                        </span>
+                    </span>
+                </a>
+            </div>
+
+            <a href="#banner-arrow" id="banner-arrow">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <section id="all-links" class="directory" aria-label="All links">
+            <div class="directory-heading">
+                <label class="search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <span class="sr-only">Search links</span>
+                    <input id="link-search" type="search" placeholder="Search links" autocomplete="off">
+                </label>
+            </div>
+
+            <div id="link-sections" class="link-sections" aria-live="polite"></div>
+        </section>
     </main>
 </body>
 

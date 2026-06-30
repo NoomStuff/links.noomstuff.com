@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+    --primary-color: #f73878;
+    --secondary-color: #5c00dd;
+
+    --primary-color-light: #ff9baa;
+    --secondary-color-light: #a36df2;
+
+    --primary-color-dark: #231117;
+    --secondary-color-dark: #191928;
+
+    --accent-color: #c369d7;
+    --accent-color-dark: #573f5c;
+
+    --background-color: #0c080e;
+    --background-color-light: #16101a;
+    --background-gradient: linear-gradient(145deg, var(--secondary-color-dark) 0%, var(--background-color-light) 50%, var(--primary-color-dark) 100%);
+
+    --text-color: #fff;
+    --text-color-light: rgba(255, 255, 255, 0.85);
+    --text-color-lighter: rgba(255, 255, 255, 0.7);
+
+    --font-family: "Quicksand", "Roboto", Helvetica, Arial, sans-serif;
+
+    --spacing-1: 0.5rem;
+    --spacing-2: 1rem;
+    --spacing-3: 2rem;
+
+    --border-divider: 2px solid var(--background-color-light);
+
+    --ease-bounce-overshoot: cubic-bezier(0.2, 3.2, 0.2, 1);
+    --ease-out-back: cubic-bezier(0.16, 1.35, 0.3, 1);
+    --ease-slide: cubic-bezier(0.2, 0.5, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    margin: 0;
+    background: var(--background-color);
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: clip;
+    color: var(--text-color);
+    background: var(--background-color);
+    font-family: var(--font-family);
+}
+
+::selection {
+    color: white;
+    background: rgba(163, 109, 242, 0.75);
+    text-shadow: 2px 2px 2px var(--background-color);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    color: inherit;
+    font: inherit;
+}
+
+img {
+    display: block;
+}

@@ -1,0 +1,261 @@
+{
+    "center": {
+        "name": "NoomStuff.com",
+        "url": "https://noomstuff.com",
+        "icon": "media/profile.png",
+        "description": "Homepage"
+    },
+    "featured": [
+        {
+            "name": "YouTube",
+            "url": "/youtube",
+            "icon": "media/icons/youtube.svg",
+            "description": "Videos and devlogs"
+        },
+        {
+            "name": "Itch.io",
+            "url": "/itch",
+            "icon": "media/icons/itch.svg",
+            "description": "Find my games here"
+        },
+        {
+            "name": "GitHub",
+            "url": "/github",
+            "icon": "media/icons/github.svg",
+            "description": "Tinkering in the open"
+        },
+        {
+            "name": "Bluesky",
+            "url": "/bluesky",
+            "icon": "media/icons/bluesky.svg",
+            "description": "Posts and progress"
+        },
+        {
+            "name": "Twitter / X",
+            "url": "/twitter",
+            "icon": "media/icons/x.svg",
+            "description": "If only I could leave"
+        }
+    ],
+    "sections": [
+        {
+            "name": "Projects",
+            "featured": true,
+            "links": [
+                {
+                    "name": "NoomStuff.com",
+                    "url": "https://noomstuff.com",
+                    "icon": "media/icons/home.svg",
+                    "description": "The main site"
+                },
+                {
+                    "name": "Blog",
+                    "url": "https://blog.noomstuff.com",
+                    "icon": "media/icons/blog.svg",
+                    "description": "For the 2 people that care what I have to say"
+                },
+                {
+                    "name": "Polyrhythm",
+                    "url": "https://polyrhythm.noomstuff.com",
+                    "icon": "media/icons/polyrhythm.svg",
+                    "description": "Simple JS polyrhythm"
+                },
+                {
+                    "name": "AI Buttons",
+                    "url": "https://aibuttons.noomstuff.com",
+                    "icon": "media/icons/ai-buttons.svg",
+                    "description": "Why are they so over the top?"
+                }
+            ]
+        },
+        {
+            "name": "Socials",
+            "links": [
+                {
+                    "name": "YouTube",
+                    "url": "/youtube",
+                    "icon": "media/icons/youtube.svg",
+                    "description": "Videos and devlogs"
+                },
+                {
+                    "name": "YouTube (Second Channel)",
+                    "url": "/youtube",
+                    "icon": "media/icons/youtube.svg",
+                    "description": "Anything that didn't fit on main"
+                },
+                {
+                    "name": "Bluesky",
+                    "url": "/bluesky",
+                    "icon": "media/icons/bluesky.svg",
+                    "description": "Posts and progress"
+                },
+                {
+                    "name": "Twitter / X",
+                    "url": "/twitter",
+                    "icon": "media/icons/x.svg",
+                    "description": "If only I could leave"
+                },
+                {
+                    "name": "Discord (Profile)",
+                    "url": "/discord-profile",
+                    "icon": "media/icons/discord.svg",
+                    "description": "Get in contact"
+                },
+                {
+                    "name": "Instagram",
+                    "url": "/instagram",
+                    "icon": "media/icons/instagram.svg",
+                    "description": "Used to be good"
+                },
+                {
+                    "name": "Twitch",
+                    "url": "/twitch",
+                    "icon": "media/icons/twitch.svg",
+                    "description": "I don't stream"
+                },
+                {
+                    "name": "TikTok",
+                    "url": "/tiktok",
+                    "icon": "media/icons/tiktok.svg",
+                    "description": "Yucky wucky"
+                },
+                {
+                    "name": "Mastodon",
+                    "url": "/mastodon",
+                    "icon": "media/icons/mastodon.svg",
+                    "description": "Could post there maybe"
+                },
+                {
+                    "name": "Threads",
+                    "url": "/threads",
+                    "icon": "media/icons/threads.svg",
+                    "description": "Never touched it again"
+                },
+                {
+                    "name": "Reddit",
+                    "url": "/reddit",
+                    "icon": "media/icons/reddit.svg",
+                    "description": "Not active"
+                },
+                {
+                    "name": "Facebook",
+                    "url": "/facebook",
+                    "icon": "media/icons/facebook.svg",
+                    "description": "Don't use it"
+                }
+            ]
+        },
+        {
+            "name": "Creative",
+            "links": [
+                {
+                    "name": "GitHub",
+                    "url": "/github",
+                    "icon": "media/icons/github.svg",
+                    "description": "Tinkering in the open"
+                },
+                {
+                    "name": "Itch.io",
+                    "url": "/itch",
+                    "icon": "media/icons/itch.svg",
+                    "description": "Find my games here"
+                },
+                {
+                    "name": "Game Jolt",
+                    "url": "/gamejolt",
+                    "icon": "media/icons/gamejolt.svg",
+                    "description": "I'll put games there eventually"
+                },
+                {
+                    "name": "Scratch",
+                    "url": "/scratch",
+                    "icon": "media/icons/scratch.svg",
+                    "description": "Old games"
+                },
+                {
+                    "name": "Neocities",
+                    "url": "/neocities",
+                    "icon": "media/icons/neocities.svg",
+                    "description": "Old silly website"
+                },
+                {
+                    "name": "ArtFight",
+                    "url": "/artfight",
+                    "icon": "media/icons/artfight.png",
+                    "description": "Might actually participate this year"
+                },
+                {
+                    "name": "Cara",
+                    "url": "/cara",
+                    "icon": "media/icons/cara.svg",
+                    "description": "Opened it twice maybe"
+                },
+                {
+                    "name": "Newgrounds",
+                    "url": "/newgrounds",
+                    "icon": "media/icons/newgrounds.svg",
+                    "description": "Gotta start using it"
+                },
+                {
+                    "name": "Spotify",
+                    "url": "/spotify",
+                    "icon": "media/icons/spotify.svg",
+                    "description": "Made 1 song, it's bad"
+                },
+                {
+                    "name": "SoundCloud",
+                    "url": "/soundcloud",
+                    "icon": "media/icons/soundcloud.svg",
+                    "description": "Nothing on here"
+                },
+                {
+                    "name": "FreeSound",
+                    "url": "/freesound",
+                    "icon": "media/icons/freesound.svg",
+                    "description": "Used for downloading, not uploading"
+                }
+            ]
+        },
+        {
+            "name": "Fun",
+            "links": [
+                {
+                    "name": "Steam (Profile)",
+                    "url": "/steam-profile",
+                    "icon": "media/icons/steam.svg",
+                    "description": "I be playin' games"
+                },
+                {
+                    "name": "osu!",
+                    "url": "/osu",
+                    "icon": "media/icons/osu.svg",
+                    "description": "Not clicking circles, I play mania"
+                },
+                {
+                    "name": "Modrinth",
+                    "url": "/modrinth",
+                    "icon": "media/icons/modrinth.svg",
+                    "description": "I got a texture pack there"
+                },
+                {
+                    "name": "Speedrun.com",
+                    "url": "/speedrun",
+                    "icon": "media/icons/speedrun.svg",
+                    "description": "Zooooooom"
+                },
+                {
+                    "name": "Roblox",
+                    "url": "/roblox",
+                    "icon": "media/icons/roblox.svg",
+                    "description": "Theres like 2 good games on here"
+                },
+                {
+                    "name": "Linktree",
+                    "url": "/linktreesite",
+                    "icon": "media/icons/linktree.svg",
+                    "description": "This page but worse"
+                }
+            ]
+        }
+    ]
+}

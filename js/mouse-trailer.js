@@ -1,92 +1,62 @@
-const style = document.createElement("style");
-style.textContent = `
-        .mouse-trailer-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 2;
-            overflow: hidden;
+// @ts-check
+
+(() => {
+    const heroElement = document.querySelector(".hero");
+    if (!(heroElement instanceof HTMLElement)) return;
+    const hero = heroElement;
+
+    const container = document.createElement("div");
+    container.className = "mouse-trailer-container";
+    container.setAttribute("aria-hidden", "true");
+
+    const trailer = document.createElement("div");
+    trailer.className = "mouse-trailer";
+    container.append(trailer);
+    hero.prepend(container);
+
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let size = 0;
+    let resetTimeout = 0;
+
+    function center() {
+        const bounds = hero.getBoundingClientRect();
+        targetX = bounds.width / 2 - size / 2;
+        targetY = bounds.height / 2 - size / 2;
+    }
+
+    function resize() {
+        const bounds = hero.getBoundingClientRect();
+        size = Math.min(bounds.width, bounds.height) * 0.35;
+        trailer.style.width = `${size}px`;
+        trailer.style.height = `${size}px`;
+        container.style.filter = `blur(${Math.min(bounds.width, bounds.height) * 0.25}px)`;
+        center();
+        if (currentX === 0 && currentY === 0) {
+            currentX = targetX;
+            currentY = targetY;
         }
+    }
 
-        .mouse-trailer {
-            position: absolute;
-            pointer-events: none;
-            border-radius: 50%;
-            z-index: 1;
-            background: linear-gradient(120deg, var(--primary-color, #f73878), var(--secondary-color, #5c00dd));
+    hero.addEventListener("pointermove", (event) => {
+        const bounds = hero.getBoundingClientRect();
+        targetX = event.clientX - bounds.left - size / 2;
+        targetY = event.clientY - bounds.top - size / 2;
+        clearTimeout(resetTimeout);
+        resetTimeout = window.setTimeout(center, 5000);
+    }, { passive: true });
+    window.addEventListener("resize", resize, { passive: true });
 
-            animation: mouse-trailer 10s infinite linear;
-        }
+    function animate() {
+        currentX += (targetX - currentX) * 0.02;
+        currentY += (targetY - currentY) * 0.02;
+        trailer.style.left = `${currentX}px`;
+        trailer.style.top = `${currentY}px`;
+        requestAnimationFrame(animate);
+    }
 
-        @keyframes mouse-trailer {
-            0% {
-                transform: rotateZ(0deg) scale(1, 1);
-            }
-
-            50% {
-                transform: rotateZ(360deg) scale(1, 1.5);
-            }
-
-            100% {
-                transform: rotateZ(720deg) scale(1, 1);
-            }
-        }
-    `;
-document.head.appendChild(style);
-
-
-const trailerContainer = document.createElement('div');
-trailerContainer.className = 'mouse-trailer-container';
-trailerContainer.style.filter = 'blur(' + Math.min(screen.width, screen.height) * 0.25 + 'px)';
-document.body.appendChild(trailerContainer);
-
-const trailerElement = document.createElement('div');
-trailerElement.className = 'mouse-trailer';
-
-const trailerSize = Math.min(screen.width, screen.height) * 0.35;
-trailerElement.style.width = trailerSize + 'px';
-trailerElement.style.height = trailerSize + 'px';
-
-trailerContainer.appendChild(trailerElement);
-
-let targetX = window.innerWidth / 2 - trailerElement.offsetWidth / 2;
-let targetY = window.innerHeight / 2 - trailerElement.offsetHeight / 2;
-let currentX = targetX;
-let currentY = targetY;
-
-trailerElement.style.left = `${currentX}px`;
-trailerElement.style.top = `${currentY}px`;
-
-let mouseTimeout;
-
-document.body.addEventListener('pointermove', (event) => 
-{
-    clearTimeout(mouseTimeout);
-
-    targetX = event.clientX - trailerElement.offsetWidth / 2;
-    targetY = event.clientY - trailerElement.offsetHeight / 2;
-
-    mouseTimeout = setTimeout(moveToCenter, 5000);
-});
-
-function moveToCenter() 
-{
-    targetX = window.innerWidth / 2 - trailerElement.offsetWidth / 2;
-    targetY = window.innerHeight / 2 - trailerElement.offsetHeight / 2;
-}
-
-function animate() 
-{
-    currentX += (targetX - currentX) * 0.02;
-    currentY += (targetY - currentY) * 0.02;
-
-    trailerElement.style.left = `${currentX}px`;
-    trailerElement.style.top = `${currentY}px`;
-
+    resize();
     requestAnimationFrame(animate);
-}
-
-animate();
+})();

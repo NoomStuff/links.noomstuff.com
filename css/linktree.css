@@ -1,154 +1,289 @@
 #linktree {
-    display: block;
-    background: var(--background-gradient);
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-#linktree::before {
-    content: '';
-    position: absolute;
-    top: -32px;
-    left: -32px;
-    width: calc(100vw + 64px);
-    height: calc(100vh + 64px);
-    background-image: url('../media/dot-background.svg');
-    background-size: 32px;
-    background-repeat: repeat;
-    z-index: 0;
-    opacity: 0.05;
-    pointer-events: none;
-
-    animation: backgroundScroll 10s linear infinite;
-
-    will-change: transform;
-    transform: translate(0, 0);
-}
-
-.link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: 1 / 1;
-    z-index: 10;
-    background-image: url('../media/bubble.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: var(--text-color);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-    text-decoration: none;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    transform-origin: top left;
-    scale: 0.9;
-
-    &:hover {
-        text-decoration: none;
-        z-index: 11;
-        scale: 1;
-    }
-}
-
-#linktree .link {
-    opacity: 1;
-    transition: opacity 1s ease;
-}
-
-#linktree .link:hover {
-    scale: 1 !important;
-}
-
-#linktree:has(.link:hover) .link:not(:hover) {
-    opacity: 0.65;
-}
-
-.link i {
-    font-size: 1.5em;
-    scale: 1;
-    transition: scale 0.3s ease;
-}
-
-.link:hover i {
-    scale: 1.2;
-}
-
-.link img {
-    border-radius: 50%;
-    transition: scale 0.3s ease;
-}
-
-.link:hover img {
-    scale: 1.025;
-}
-
-.link span {
-    position: absolute;
-    font-size: 0.45em;
-    font-weight: 300;
-    background-color: black;
-    padding: 0 var(--spacing-1);
-    border-radius: var(--spacing-1);
-    transform: scale(0.5) translateY(300%);
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.link:hover span {
-    z-index: 1;
-    transform: scale(1) translateY(200%);
-    opacity: 1;
-}
-
-.home-link img {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--background-gradient);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: -32px;
+    z-index: -1;
+    opacity: 0.05;
+    background: url("../media/dot-background.svg") 0 0 / 32px 32px repeat;
+    animation: backgroundScroll 10s linear infinite;
+    pointer-events: none;
+}
+
+.bubble-stage,
+.mouse-trailer-container {
+    position: absolute;
+    inset: 0;
+}
+
+.bubble-stage {
+    z-index: 2;
+    touch-action: pan-y;
+}
+
+.bubble-caption {
+    position: absolute;
+    top: clamp(2rem, 9svh, 5rem);
+    left: 50%;
+    z-index: 3;
+    display: grid;
+    width: min(32rem, calc(100% - 3rem));
+    gap: 0.2rem;
+    color: var(--text-color);
+    text-align: center;
+    opacity: 0;
+    translate: -50% 1rem;
+    pointer-events: none;
+    transition:
+        opacity 180ms ease,
+        translate 300ms var(--ease-out-back);
+}
+
+.bubble-caption.resetting {
+    transition: none;
+}
+
+.bubble-caption.visible {
+    opacity: 1;
+    translate: -50% 0;
+}
+
+.bubble-caption strong {
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    line-height: 1.1;
+}
+
+.bubble-caption span {
+    color: var(--text-color-lighter);
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    line-height: 1.4;
+}
+
+.mouse-trailer-container {
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.mouse-trailer {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+    animation: mouse-trailer-spin 10s infinite linear;
+}
+
+.featured-bubble,
+.profile-bubble {
+    position: absolute;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    will-change: transform;
+}
+
+.bubble-entrance,
+.bubble-surface {
+    position: absolute;
+    inset: 0;
     border-radius: 50%;
 }
 
-.bubble-animate {
-    animation: bubbleFadeIn 0.75s cubic-bezier(0.15, 0.5, 0.2, 1.275) forwards;
+.bubble-entrance {
+    pointer-events: none;
+    animation: bubble-in 550ms var(--ease-out-back) both;
 }
 
-@keyframes bubbleFadeIn {
+.bubble-surface {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: url("../media/bubble.png") center / cover no-repeat;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+    scale: 1;
+    transition:
+        scale 240ms var(--ease-out-back),
+        filter 200ms var(--ease-bounce-overshoot);
+}
+
+.bubble-surface img {
+    scale: 1;
+    transition: scale 400ms var(--ease-bounce-overshoot);
+}
+
+.featured-bubble:hover,
+.featured-bubble:focus-visible,
+.profile-bubble:hover,
+.profile-bubble:focus-visible {
+    z-index: 10;
+    outline: none;
+}
+
+.featured-bubble:hover .bubble-surface,
+.featured-bubble:focus-visible .bubble-surface,
+.profile-bubble:hover .bubble-surface,
+.profile-bubble:focus-visible .bubble-surface {
+    scale: 1.1;
+    filter: brightness(1.1);
+}
+
+.featured-bubble:hover .bubble-surface img,
+.featured-bubble:focus-visible .bubble-surface img,
+.profile-bubble:hover .bubble-surface img,
+.profile-bubble:focus-visible .bubble-surface img {
+    scale: 1.1;
+}
+
+.featured-bubble:active .bubble-surface,
+.profile-bubble:active .bubble-surface {
+    scale: 0.95;
+}
+
+.featured-bubble {
+    opacity: 1;
+}
+
+.featured-bubble img {
+    position: relative;
+    z-index: 2;
+    width: 42%;
+    height: 42%;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.45));
+    pointer-events: none;
+}
+
+.profile-bubble {
+    z-index: 3;
+    width: 220px;
+    opacity: 1;
+}
+
+.profile-bubble .bubble-entrance {
+    animation-delay: 40ms;
+}
+
+.profile-bubble .bubble-surface::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    opacity: 0.42;
+    border-radius: inherit;
+    background: url("../media/bubble.png") center / cover no-repeat;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.profile-bubble img {
+    position: absolute;
+    inset: 5%;
+    z-index: 2;
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.link-sections {
+    display: grid;
+    gap: 4rem;
+}
+
+@keyframes bubble-in {
     from {
+        opacity: 0;
         scale: 0;
     }
 
     to {
-        scale: 0.9;
-    }
-}
-
-#mobile-text {
-    display: none;
-    user-select: none;
-    pointer-events: none;
-    opacity: 0.75;
-    animation: opacityPulse 4s ease-in-out infinite;
-}
-
-@media screen and (max-width: 768px) {
-    #linktree.mobile-hover.triggered .link span {
-        z-index: 1;
-        transform: scale(1) translateY(175%);
         opacity: 1;
+        scale: 1;
+    }
+}
+
+.link-group {
+    width: 100%;
+}
+
+@keyframes nudge-down {
+
+    0%,
+    100% {
+        transform: translateY(0);
     }
 
-    #mobile-text {
-        position: absolute;
-        display: block;
-        bottom: 2vh;
-        width: 100%;
-        text-align: center;
-        font-size: 1.5rem;
-        font-weight: 300;
-        color: var(--text-color);
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-        z-index: 10;
+    50% {
+        transform: translateY(4px);
     }
+}
+
+@keyframes mouse-trailer-spin {
+    0% {
+        transform: rotate(0deg) scale(1, 1);
+    }
+
+    50% {
+        transform: rotate(360deg) scale(1, 1.5);
+    }
+
+    100% {
+        transform: rotate(720deg) scale(1, 1);
+    }
+}
+
+@keyframes backgroundScroll {
+    to {
+        transform: translate(32px, 32px);
+    }
+}
+
+@media (min-width: 900px) {
+    .bubble-caption {
+        top: clamp(2rem, 7svh, 5rem);
+        right: auto;
+        left: clamp(2rem, 5vw, 5rem);
+        width: min(26rem, 35vw);
+        text-align: left;
+        translate: 0 1rem;
+    }
+
+    .bubble-caption.visible {
+        translate: 0 0;
+    }
+}
+
+@media (max-width: 760px) {
+    .directory {
+        width: calc(100% - 2rem);
+        padding: 4rem 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+
 }
