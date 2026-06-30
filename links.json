@@ -79,7 +79,7 @@
                 },
                 {
                     "name": "YouTube (Second Channel)",
-                    "url": "/youtube",
+                    "url": "/youtube-second",
                     "icon": "media/icons/youtube.svg",
                     "description": "Anything that didn't fit on main"
                 },
@@ -206,7 +206,7 @@
                     "name": "SoundCloud",
                     "url": "/soundcloud",
                     "icon": "media/icons/soundcloud.svg",
-                    "description": "Nothing on here"
+                    "description": "Still 1 song, still bad"
                 },
                 {
                     "name": "FreeSound",
