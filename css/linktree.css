@@ -48,8 +48,8 @@
     translate: -50% 1rem;
     pointer-events: none;
     transition:
-        opacity 180ms ease,
-        translate 300ms var(--ease-out-back);
+        opacity 200ms ease,
+        translate 400ms var(--ease-out-back);
 }
 
 .bubble-caption.resetting {
@@ -81,6 +81,7 @@
 .mouse-trailer {
     position: absolute;
     border-radius: 50%;
+    corner-shape: round;
     background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
     animation: mouse-trailer-spin 10s infinite linear;
 }
@@ -90,6 +91,7 @@
     position: absolute;
     aspect-ratio: 1;
     border-radius: 50%;
+    corner-shape: round;
     transform: translate3d(-50%, -50%, 0);
     will-change: transform;
 }
@@ -99,6 +101,7 @@
     position: absolute;
     inset: 0;
     border-radius: 50%;
+    corner-shape: round;
 }
 
 .bubble-entrance {
@@ -189,6 +192,8 @@
 
 .profile-bubble img {
     position: absolute;
+    border-radius: 50%;
+    corner-shape: round;
     inset: 5%;
     z-index: 2;
     width: 90%;
