@@ -39,7 +39,7 @@
         group.className = `link-group${section.featured ? " link-group--featured" : ""}`;
 
         const heading = document.createElement("div");
-        heading.className = "link-group-heading";
+        heading.className = "link-group-heading animate-in";
         const title = document.createElement("h3");
         title.textContent = section.name;
         heading.append(title);
@@ -50,7 +50,7 @@
         for (const link of section.links) {
             const tile = createTile(section.name, link);
             grid.append(tile);
-            tiles.push(tile);
+            tiles.push(tile.querySelector(".link-tile"));
         }
 
         group.append(heading, grid);
@@ -65,11 +65,15 @@
             throw new TypeError("Every link needs a name, URL, icon, and description.");
         }
 
+        const wrapper = document.createElement("div");
+        wrapper.className = "animate-in";
+
         const tile = document.createElement("a");
         tile.className = "link-tile";
         tile.href = link.url;
         tile.target = "_blank";
         tile.rel = "noopener noreferrer";
+
         tile.dataset.name = link.name.toLocaleLowerCase();
         tile.dataset.section = sectionName.toLocaleLowerCase();
 
@@ -100,7 +104,9 @@
         arrow.setAttribute("aria-hidden", "true");
 
         tile.append(iconWrap, divider, copy, arrow);
-        return tile;
+        wrapper.append(tile);
+
+        return wrapper;
     }
 
     function addIconFallback(image) {

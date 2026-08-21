@@ -15,8 +15,20 @@
     <script src="js/mouse-trailer.js" defer></script>
     <script src="js/scroll-down.js" defer></script>
     <script src="js/curve-clip.js" defer></script>
-    
+    <script src="js/triangle-fluid.js" defer></script>
+
     <script src="https://kit.fontawesome.com/a7bbea504e.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis();
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+    </script>
 
     <title>NoomStuff's Linktree</title>
     <meta name="description" content="All the places you can find me online!">
