@@ -1,3 +1,24 @@
+/* ===== Animate in ===== */
+
+.animate-in {
+    animation: transition-in cubic-bezier(0.25, 1, 0.75, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+}
+
+@keyframes transition-in {
+    from {
+        transform: translateY(5rem);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
 #banner-arrow {
     position: absolute;
     left: 50%;
@@ -166,27 +187,6 @@
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
-}
-
-
-/* ===== Animate in ===== */
-
-.animate-in {
-    animation: transition-in cubic-bezier(0.25, 1, 0.75, 1) both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 50%;
-}
-
-@keyframes transition-in {
-    from {
-        transform: translateY(5rem);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 

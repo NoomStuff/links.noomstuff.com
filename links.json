@@ -33,7 +33,7 @@
         {
             "name": "Twitter / X",
             "url": "/twitter",
-            "icon": "media/icons/x.svg",
+            "icon": "media/icons/twitter.svg",
             "description": "If only I could leave"
         }
     ],
@@ -92,7 +92,7 @@
                 {
                     "name": "Twitter / X",
                     "url": "/twitter",
-                    "icon": "media/icons/x.svg",
+                    "icon": "media/icons/twitter.svg",
                     "description": "If only I could leave"
                 },
                 {
